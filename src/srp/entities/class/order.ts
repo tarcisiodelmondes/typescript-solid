@@ -1,7 +1,7 @@
 import { ShoppingCart } from './shoppingCart';
 import { orderStatusType } from './interfaces/orderStatusType';
-import { Message } from './services/message';
-import { SaveOrder } from './services/persistence';
+import { Message } from '../services/message';
+import { SaveOrder } from '../services/persistence';
 
 export class Order {
   private _orderStatus: orderStatusType = 'open';

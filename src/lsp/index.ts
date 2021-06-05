@@ -16,6 +16,7 @@ const fiftyPercentDiscount = new FiftyPercentDiscount();
 // const noDiscount = new NoDiscount();
 
 const shoppingCart = new ShoppingCart(fiftyPercentDiscount);
+
 const order = new Order(shoppingCart, new Message(), new SaveOrder());
 
 shoppingCart.addItem(new Product('Notebook', 599.99));

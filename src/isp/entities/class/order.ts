@@ -1,7 +1,8 @@
 import { ShoppingCart } from './shoppingCart';
 import { orderStatusType } from './interfaces/orderStatusType';
-import { Message } from './services/message';
-import { SaveOrder } from './services/persistence';
+import { Message } from '../services/message';
+import { SaveOrder } from '../services/persistence';
+import { CustomerOrder } from './interfaces/customerProtocol';
 
 export class Order {
   private _orderStatus: orderStatusType = 'open';
@@ -10,6 +11,7 @@ export class Order {
     private readonly shoppingCart: ShoppingCart,
     private readonly message: Message,
     private readonly save: SaveOrder,
+    private readonly customer: CustomerOrder,
   ) {}
 
   get orderStatus(): orderStatusType {
@@ -28,5 +30,10 @@ export class Order {
     );
     this.save.saveOrder();
     this.shoppingCart.clearCart();
+
+    console.log(`
+    ${this.customer.getName()}
+    ${this.customer.getIDN()}
+  `);
   }
 }
